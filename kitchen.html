@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kitchen board — Chicken Republic, Ikeja</title>
+<meta name="description" content="Order dispatch board, 86 controls and rider status for Chicken Republic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/callnchop.css">
+</head>
+<body>
+
+<header class="head">
+  <div class="wrap head__in">
+    <a class="mark" href="index.html">
+      <span class="mark__glyph" aria-hidden="true">CR</span>
+      <span>Chicken Republic<small>14 Allen Ave &middot; Ikeja</small></span>
+    </a>
+    <div class="head__loc">Shift <b>11:00&ndash;21:30</b><br>Tablet 2 of 3</div>
+    <nav class="head__nav" aria-label="Main">
+      <a href="index.html">Storefront</a>
+      <a href="#" aria-current="page">Board</a>
+      <a href="#menu86">86 the menu</a>
+      <a href="#riders">Riders</a>
+      <span class="status"><i></i>Accepting orders</span>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ KPIs ============ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <p class="eyebrow">Saturday 21 February &middot; 19:04 &middot; shifts 11:00&ndash;21:30</p>
+
+    <dl class="kpi" style="margin-top:1.4rem">
+      <div>
+        <dt>Tickets tonight</dt>
+        <dd>41 <small>vs 35 last Tue</small></dd>
+      </div>
+      <div>
+        <dt>Median fire time</dt>
+        <dd>28 <small>min</small></dd>
+      </div>
+      <div class="kpi--warn">
+        <dt>Past 40 min</dt>
+        <dd>3 <small>of 41</small></dd>
+      </div>
+      <div>
+        <dt>Cash unsettled</dt>
+        <dd>₦74.5<small>k</small></dd>
+      </div>
+      <div>
+        <dt>Riders waiting</dt>
+        <dd>1 <small>of 6 on shift</small></dd>
+      </div>
+    </dl>
+
+    <p class="fineprint" style="margin-top:0">
+      Settles at midnight. We take the 2.9% Paystack fee on card orders and nothing on cash.
+      Ada&rsquo;s note: <em>the 3 late ones were all accepted while the whole birds were in the fryer.</em>
+    </p>
+  </div>
+</section>
+
+<!-- ============ ORDER BOARD ============ -->
+<section class="section section--tight section--flush">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <p class="eyebrow">Dispatch</p>
+        <h2>Ten tickets on the wall</h2>
+      </div>
+      <p class="mono" style="color:var(--muted);max-width:30ch;margin:0">
+        A ticket only appears in a column once someone has
+        <em style="color:var(--ink)">pressed the button</em>. No auto-advancing,
+        no pretending a ticket is done because the timer says so.
+      </p>
+    </div>
+
+    <div class="board-grid" data-board>
+
+      <!-- service rail: the numbers that are true for every column -->
+      <div class="krail">
+        <div class="krail__b krail__b--live">On the pass<b>6</b></div>
+        <div class="krail__b">Fryers<b>4</b></div>
+        <div class="krail__b">Queue<b>3</b></div>
+        <div class="krail__b">Last 86<b>15:00</b></div>
+      </div>
+
+      <!-- NEW -->
+      <div class="kcol kcol--now" data-col="new">
+        <div class="kcol__hd">
+          <h3>New</h3><b>3</b>
+        </div>
+        <div class="kcol__body">
+
+          <article class="ticket ticket--hot ticket--late" data-stage="new">
+            <div class="ticket__top">
+              <span class="ticket__id">#CR-4489</span>
+              <span class="ticket__age">8 min</span>
+            </div>
+            <ul>
+              <li><span>2 &times; Jollof + 3 pcs chicken</span><b>₦8,400</b></li>
+              <li><span>1 &times; Chapman 500ml</span><b>₦1,200</b></li>
+              <li><span>1 &times; Coleslaw, large</span><b>₦1,800</b></li>
+            </ul>
+            <div class="ticket__ft">
+              <span>Ikeja &middot; <b>cash ₦11,400</b></span>
+              <button class="btn btn--sm" data-advance>Accept</button>
+            </div>
+          </article>
+
+          <article class="ticket" data-stage="new">
+            <div class="ticket__top">
+              <span class="ticket__id">#CR-4487</span>
+              <span class="ticket__age">3 min</span>
+            </div>
+            <ul>
+              <li><span>1 &times; Party jollof 1.5kg <b style="color:var(--vermilion)">&mdash; hold 10 min, plantain not back from the fryer</b></span><b>₦9,500</b></li>
+              <li><span>1 &times; Coleslaw, large</span><b>₦1,800</b></li>
+            </ul>
+            <div class="ticket__ft">
+              <span>Yaba &middot; +&#8358;2,500 zone &middot; <b>card ₦13,800</b></span>
+              <button class="btn btn--sm" data-advance>Accept</button>
+            </div>
+          </article>
+
+          <article class="ticket" data-stage="new">
+            <div class="ticket__top">
+              <span class="ticket__id">#CR-4486</span>
+              <span class="ticket__age">1 min</span>
+            </div>
+            <ul>
+              <li><span>1 &times; Whole fried chicken, 1.4kg <b style="color:var(--vermilion)">&mdash; last one in the fryer</b></span><b>₦9,800</b></li>
+              <li><span>1 &times; Wings, 8 pcs</span><b>₦4,800</b></li>
+            </ul>
+            <div class="ticket__ft">
+              <span>Ikeja &middot; <b>transfer ₦14,600</b></span>
+              <button class="btn btn--sm" data-advance>Accept</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- PREP -->
+      <div class="kcol kcol--now" data-col="prep">
+        <div class="kcol__hd">
+          <h3>Preparing</h3><b>3</b>
+        </div>
+        <div class="kcol__body">
+
+          <article class="ticket" data-stage="prep">
+            <div class="ticket__top">
+              <span class="ticket__id">#CR-4484</span>
+              <span class="ticket__age">22 min</span>
+            </div>
+            <ul>
+              <li><span>1 &times; Ofada + 2 pcs chicken</span><b>₦7,400</b></li>
+              <li><span>1 &times; Grilled half chicken, quartered</span><b>₦5,600</b></li>
+            </ul>
+            <div class="ticket__ft">
+              <span>Surulere &middot; <b>cash ₦13,000</b></span>
+              <button class="btn btn--sm" data-advance>Ready</button>
+            </div>
+          </article>
+
+          <article class="ticket ticket--hot" data-stage="prep">
+            <div class="ticket__top">
+              <span class="ticket__id">#CR-4482</span>
+              <span class="ticket__age">14 min</span>
+            </div>
+            <ul>
+              <li><span>2 &times; Suya chicken, 6 pcs <b style="color:var(--vermilion)">&mdash; one mild, one proper</b></span><b>₦11,000</b></li>
+              <li><span>1 &times; Zobo hibiscus, 1L</span><b>₦1,500</b></li>
+            </ul>
+            <div class="ticket__ft">
+              <span>Yaba &middot; +&#8358;2,500 zone &middot; <b>card ₦15,000</b></span>
+              <button class="btn btn--sm" data-advance>Ready</button>
+            </div>
+          </article>
+
+          <article class="ticket" data-stage="prep">
+            <div class="ticket__top">
+              <span class="ticket__id">#CR-4481</span>
+              <span class="ticket__age">6 min</span>
+            </div>
+            <ul>
+              <li><span>1 &times; Suya skewers, 6 pcs</span><b>₦4,400</b></li>
+              <li><span>1 &times; Zobo 1L</span><b>₦1,500</b></li>
+            </ul>
+            <div class="ticket__ft">
+              <span>Ikeja &middot; <b>cash ₦5,900</b></span>
+              <button class="btn btn--sm" data-advance>Ready</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- READY -->
+      <div class="kcol" data-col="ready">
+        <div class="kcol__hd">
+          <h3>Ready for rider</h3><b>2</b>
+        </div>
+        <div class="kcol__body">
+
+          <article class="ticket" data-stage="ready">
+            <div class="ticket__top">
+              <span class="ticket__id">#CR-4479</span>
+              <span class="ticket__age">waited 4 min</span>
+            </div>
+            <ul>
+              <li><span>3 &times; Chicken tenders, 8 pcs</span><b>₦12,600</b></li>
+              <li><span>3 &times; Chapman 500ml</span><b>₦3,600</b></li>
+            </ul>
+            <div class="ticket__ft">
+              <span>Waiting: <b>Chidi</b></span>
+              <button class="btn btn--sm" data-advance>Hand to rider</button>
+            </div>
+          </article>
+
+          <article class="ticket" data-stage="ready">
+            <div class="ticket__top">
+              <span class="ticket__id">#CR-4478</span>
+              <span class="ticket__age">waited 1 min</span>
+            </div>
+            <ul>
+              <li><span>1 &times; Rotisserie half chicken</span><b>₦6,400</b></li>
+              <li><span>1 &times; Nuggets, 8 pcs <b style="color:var(--vermilion)">&mdash; out, refunded ₦3,200</b></span><b>₦3,200</b></li>
+            </ul>
+            <div class="ticket__ft">
+              <span>Matched: <b>Emeka</b></span>
+              <button class="btn btn--sm" data-advance>Hand to rider</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- DONE -->
+      <div class="kcol kcol--done" data-col="done">
+        <div class="kcol__hd">
+          <h3>Out for delivery</h3><b>2</b>
+        </div>
+        <div class="kcol__body">
+
+          <article class="ticket" data-stage="done" style="opacity:.6">
+            <div class="ticket__top">
+              <span class="ticket__id">#CR-4476</span>
+              <span class="ticket__age">rider 6 min away</span>
+            </div>
+            <ul>
+              <li><span>1 &times; Wings platter for 4, 20 pcs</span><b>₦11,500</b></li>
+              <li><span>1 &times; Coleslaw, large</span><b>₦1,800</b></li>
+            </ul>
+            <div class="ticket__ft">
+              <span>Tunde &middot; <b>₦13,300 collected</b></span>
+              <button class="btn btn--sm" disabled>Out</button>
+            </div>
+          </article>
+
+          <article class="ticket" data-stage="done" style="opacity:.45">
+            <div class="ticket__top">
+              <span class="ticket__id">#CR-4471</span>
+              <span class="ticket__age">closed 17:51</span>
+            </div>
+            <ul>
+              <li><span>Whole fried chicken 1.4kg</span><b>₦9,800</b></li>
+              <li><span>Party jollof, 1.5kg</span><b>₦9,500</b></li>
+              <li><span>Delivery &middot; Ikeja</span><b>₦1,500</b></li>
+            </ul>
+            <div class="ticket__ft">
+              <span>Confirmed &middot; <b>released ₦20,800</b></span>
+              <button class="btn btn--sm" disabled>Done</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 86 THE MENU ============ -->
+<section class="section section--paper2" id="menu86">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <p class="eyebrow">Menu control</p>
+        <h2>86 it before someone orders it</h2>
+      </div>
+      <p class="mono" style="color:var(--muted);max-width:30ch;margin:0">
+        One tap. The storefront, your WhatsApp link and the printed
+        QR on the table all update within 20 seconds. If the nuggets run
+        out at 15:00 you press this, not your staff.
+      </p>
+    </div>
+
+    <div class="steps">
+      <div class="steps__row" data-menu-item>
+        <div class="steps__n">01</div>
+        <div>
+          <h3>Party jollof, 1.5kg &mdash; ₦9,500</h3>
+          <p>45 min fire time. Only worth accepting before 19:00.</p>
+        </div>
+        <div class="steps__note" style="border-left:0;padding-left:0;text-align:right">
+          <button class="btn btn--sm btn--ghost" data-86>86 it</button>
+        </div>
+      </div>
+
+      <div class="steps__row item--out" data-menu-item>
+        <div class="steps__n">02</div>
+        <div>
+          <h3>Ofada rice + fried chicken &mdash; ₦7,400</h3>
+          <p>Out of tomato base, so we stopped taking new ones at 18:40. The ticket already on the wall is being finished.</p>
+        </div>
+        <div class="steps__note" style="border-left:0;padding-left:0;text-align:right">
+          <button class="btn btn--sm" data-86>Back on</button>
+        </div>
+      </div>
+
+      <div class="steps__row item--out" data-menu-item>
+        <div class="steps__n">03</div>
+        <div>
+          <h3>Nuggets, 8 pcs &mdash; ₦3,200</h3>
+          <p>86&rsquo;d at 15:00. Next tray 16:00, and that is the last one today. The storefront already says &ldquo;sold out&rdquo;.</p>
+        </div>
+        <div class="steps__note" style="border-left:0;padding-left:0;text-align:right">
+          <button class="btn btn--sm" data-86>Back on</button>
+        </div>
+      </div>
+
+      <div class="steps__row" data-menu-item>
+        <div class="steps__n">04</div>
+        <div>
+          <h3>Suya skewers, beef, 6 pcs &mdash; ₦4,400</h3>
+          <p>Grinding the nut now. Two trays worth of skewers left in the freezer.</p>
+        </div>
+        <div class="steps__note" style="border-left:0;padding-left:0;text-align:right">
+          <button class="btn btn--sm btn--ghost" data-86>86 it</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RIDERS ============ -->
+<section class="section section--tight" id="riders">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <p class="eyebrow">Rider dispatch</p>
+        <h2>Six on shift, four on this board</h2>
+      </div>
+      <p class="mono" style="color:var(--muted);max-width:28ch;margin:0">
+        Paid by the hour from 16:00, not per trip. We stopped paying
+        per trip when three riders started abandoning the outer zones.
+      </p>
+    </div>
+
+    <div class="steps">
+      <div class="steps__row">
+        <div class="steps__n">01</div>
+        <div>
+          <h3>Emeka O. &mdash; carrying #CR-4478</h3>
+          <p>Left the junction 1 min ago. To Ikoyi, 4.1 km. He has ₦3,500 float and the change instructions.</p>
+        </div>
+        <div class="steps__note">ETA <b>12 min</b></div>
+      </div>
+      <div class="steps__row">
+        <div class="steps__n">02</div>
+        <div>
+          <h3>Chidi N. &mdash; idle, 6 min at the junction</h3>
+          <p>One ready ticket is waiting on him. Ping sent. He has ignored the last two pings, which is a thing we log.</p>
+        </div>
+        <div class="steps__note">Available &middot; <b>pinged</b></div>
+      </div>
+      <div class="steps__row">
+        <div class="steps__n">03</div>
+        <div>
+          <h3>Tunde A. &mdash; carrying #CR-4476</h3>
+          <p>To Sabon Giri. Cash order, ₦13,300 already collected. Receipt photo attached to the ticket.</p>
+        </div>
+        <div class="steps__note">ETA <b>18 min</b></div>
+      </div>
+      <div class="steps__row">
+        <div class="steps__n">04</div>
+        <div>
+          <h3>Halima S. &mdash; off shift at 19:00</h3>
+          <p>Her zone, Maryland, has no rider after 19:00. Tonight&rsquo;s two orders there will be walked by whoever is nearest.</p>
+        </div>
+        <div class="steps__note" style="color:var(--vermilion)">Coverage gap &middot; <b>Maryland</b></div>
+      </div>
+    </div>
+
+    <p class="fineprint">
+      Two more are out on the outer zones and not on this screen. Riders see only the ticket
+      they&rsquo;ve been handed, never the whole board, and never another rider&rsquo;s phone number.
+      Location is written at most once every 3 seconds &mdash; the server rejects anything faster,
+      because the browser will happily send it 40 times a second.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div>
+        <div class="foot__mark">Chicken Republic</div>
+        <p style="margin-top:1rem;max-width:32ch">
+          Signed in as Ada Nwosu &mdash; Founder &amp; head chef.
+          Role: <b style="color:var(--paper)">owner</b>. This tablet can accept
+          orders, 86 the menu and release payment. It cannot change prices.
+        </p>
+      </div>
+      <div>
+        <h4>Board</h4>
+        <ul>
+          <li><a href="#">Tickets tonight</a></li>
+          <li><a href="#">Payouts</a></li>
+          <li><a href="#">Receipts</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Storefront</h4>
+        <ul>
+          <li><a href="index.html">Customer view</a></li>
+          <li><a href="#">Shareable link</a></li>
+          <li><a href="#">QR for the table</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <address>
+          A person answers this, not a bot.<br><br>
+          <a href="https://wa.me/2342015550199">WhatsApp 020 1555 0199</a><br>
+          <a href="mailto:orders@chickenrepublic.ng">orders@chickenrepublic.ng</a><br><br>
+          Median reply time last week:<br>
+          <b style="color:var(--yellow)">4 minutes, 11am&ndash;9pm</b>
+        </address>
+      </div>
+    </div>
+    <div class="foot__btm">
+      <span>© 2026 Chicken Republic Ltd &middot; 14 Allen Avenue, Ikeja</span>
+      <span>Prototype &middot; no real orders were harmed</span>
+      <span>Ikeja, Lagos &middot; ordering by CallnChop</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/callnchop.js"></script>
+</body>
+</html>
